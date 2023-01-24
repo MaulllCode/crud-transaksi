@@ -53,45 +53,48 @@
         ?>
     </div>
 
-    <div id="form" class="container py-3">
-        <!-- Content Wrapper. Contains page content -->
-        <div class="card">
-            <!-- Content Header (Page header) -->
-            <section class="card-header">
-                <h1>
-                    FORM LOGIN
-                </h1>
-            </section>
-            <!-- Main content -->
-            <section class="card-body">
-                <div class="row">
-                    <!-- left column -->
-                    <div class="col-md-12">
-                        <!-- general form elements -->
-                        <div class="box box-primary">
-                            <!-- /.box-header -->
-                            <!-- form start -->
-                            <form method="post" action="">
-                                <div class="form-group">
-                                    <label>Username</label>
-                                    <input type="text" class="form-control" name="username" placeholder="Masukan Username" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Password</label>
-                                    <input type="password" class="form-control" name="password" placeholder="Masukan Password" required>
-                                </div>
-                                <div class="form-group pt-3">
-                                    <input type="submit" class="btn btn-primary" name="login" value="Login">
-                                </div>
-                            </form>
+    <div class="card">
+
+        <div id="form" class="container py-3">
+            <!-- Content Wrapper. Contains page content -->
+            <div class="card">
+                <!-- Content Header (Page header) -->
+                <section class="card-header">
+                    <h1>
+                        FORM LOGIN
+                    </h1>
+                </section>
+                <!-- Main content -->
+                <section class="card-body">
+                    <div class="row">
+                        <!-- left column -->
+                        <div class="col-md-12">
+                            <!-- general form elements -->
+                            <div class="box box-primary">
+                                <!-- /.box-header -->
+                                <!-- form start -->
+                                <form method="post" action="">
+                                    <div class="form-group">
+                                        <label>Username</label>
+                                        <input type="text" class="form-control" name="username" placeholder="Masukan Username" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Password</label>
+                                        <input type="password" class="form-control" name="password" placeholder="Masukan Password" required>
+                                    </div>
+                                    <div class="form-group pt-3">
+                                        <input type="submit" class="btn btn-primary" name="login" value="Login">
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- /.box -->
                         </div>
-                        <!-- /.box -->
                     </div>
-                </div>
-            </section>
-            <!-- /.content -->
+                </section>
+                <!-- /.content -->
+            </div>
+            <!-- /.content-wrapper -->
         </div>
-        <!-- /.content-wrapper -->
     </div>
 </body>
 
