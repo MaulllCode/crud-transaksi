@@ -32,12 +32,20 @@
         // Proses ubah
         if (isset($_POST['ubah'])) {
             $id = $_POST['id'];
-            $nim = $_POST['nim'];
-            $nama = $_POST['nama'];
-            $kelas = $_POST['kelas'];
-            $jurusan = $_POST['jurusan'];
+            $id_outlet = $_POST['id_outlet'];
+            $kode_invoice = $_POST['kode_invoice'];
+            $id_member = $_POST['id_member'];
+            $tgl = $_POST['tgl'];
+            $batas_waktu = $_POST['batas_waktu'];
+            $tgl_bayar = $_POST['tgl_bayar'];
+            $biaya_tambahan = $_POST['biaya_tambahan'];
+            $diskon = $_POST['diskon'];
+            $pajak = $_POST['pajak'];
+            $status = $_POST['status'];
+            $dibayar = $_POST['dibayar'];
+            $id_user = $_POST['id_user'];
 
-            $sql = "UPDATE mahasiswa SET nim='$nim',nama='$nama',kelas='$kelas',jurusan='$jurusan' WHERE id_mahasiswa ='$id'";
+            $sql = "UPDATE tb_transaksi SET id_outlet='$id_outlet',nama='$nama',kelas='$kelas',jurusan='$jurusan' WHERE id ='$id'";
 
             $result = mysqli_query($kon, $sql);
 
@@ -80,8 +88,8 @@
                                 <div class="box-body">
                                     <input type="hidden" name="id" value="<?php echo $row['id_mahasiswa']; ?>">
                                     <div class="form-group">
-                                        <label>Nim</label>
-                                        <input type="text" name="nim" class="form-control" placeholder="Nim" value="<?php echo $row['nim']; ?>" required>
+                                        <label>id_outlet</label>
+                                        <input type="text" name="id_outlet" class="form-control" placeholder="id_outlet" value="<?php echo $row['id_outlet']; ?>" required>
                                     </div>
                                     <div class="form-group">
                                         <label>Nama</label>

@@ -42,7 +42,7 @@
     </div>
 
     <!-- Content Wrapper. Contains page content -->
-    <div id="form" class="container py-3">
+    <div id="form" class="container-fluid py-3">
         <div class="card">
             <!-- Content Header (Page header) -->
             <section class="card-header">
@@ -90,11 +90,19 @@
                                 <table id="myTable" class="table table-bordered table-hover pt-2">
                                     <thead>
                                         <tr>
-                                            <th>NO</th>
-                                            <th>NIM</th>
-                                            <th>NAMA</th>
-                                            <th>KELAS</th>
-                                            <th>JURUSAN</th>
+                                            <th>ID</th>
+                                            <th>ID OUTLET</th>
+                                            <th>KODE INVOICE</th>
+                                            <th>ID MEMBER</th>
+                                            <th>TANGGAL</th>
+                                            <th>BATAS WAKTU</th>
+                                            <th>TANGGAL BAYAR</th>
+                                            <th>BIAYA TAMBAHAN</th>
+                                            <th>DISKON</th>
+                                            <th>PAJAK</th>
+                                            <th>STATUS</th>
+                                            <th>DIBAYAR</th>
+                                            <th>ID USER</th>
                                             <?php
                                             // Tampilan aksi untuk admin
                                             if (isset($_SESSION['id_user'])) {
@@ -111,23 +119,31 @@
                                         include "conn.php";
                                         // Ambil data untuk index
                                         $no = 1;
-                                        $query = mysqli_query($kon, "SELECT * FROM mahasiswa");
+                                        $query = mysqli_query($kon, "SELECT * FROM tb_transaksi");
                                         while ($row = mysqli_fetch_array($query)) {
                                         ?>
 
                                             <tr>
                                                 <td><?php echo $no++; ?></td>
-                                                <td><?php echo $row['nim']; ?></td>
-                                                <td><?php echo $row['nama']; ?></td>
-                                                <td><?php echo $row['kelas']; ?></td>
-                                                <td><?php echo $row['jurusan']; ?></td>
+                                                <td><?php echo $row['id_outlet']; ?></td>
+                                                <td><?php echo $row['kode_invoice']; ?></td>
+                                                <td><?php echo $row['id_member']; ?></td>
+                                                <td><?php echo $row['tgl']; ?></td>
+                                                <td><?php echo $row['batas_waktu']; ?></td>
+                                                <td><?php echo $row['tgl_bayar']; ?></td>
+                                                <td><?php echo $row['biaya_tambahan']; ?></td>
+                                                <td><?php echo $row['diskon']; ?>%</td>
+                                                <td><?php echo $row['pajak']; ?>%</td>
+                                                <td><?php echo $row['status']; ?></td>
+                                                <td><?php echo $row['dibayar']; ?></td>
+                                                <td><?php echo $row['id_user']; ?></td>
                                                 <?php
                                                 // Tombol aksi untuk admin
                                                 if (isset($_SESSION['id_user'])) {
                                                 ?>
                                                     <td>
-                                                        <a href="ubah_mahasiswa?id=<?= $row['id_mahasiswa']; ?>" class="btn btn-success" role="button" title="Ubah Data">Ubah Data<i class="glyphicon glyphicon-edit"></i></a>
-                                                        <a href="hapus_mahasiswa?id=<?= $row['id_mahasiswa']; ?>" class="btn btn-danger" role="button" title="Hapus Data">Hapus Data<i class="glyphicon glyphicon-trash"></i></a>
+                                                        <a href="ubah_mahasiswa?id=<?= $row['id']; ?>" class="btn btn-success" role="button" title="Ubah Data">Ubah Data<i class="glyphicon glyphicon-edit"></i></a>
+                                                        <a href="hapus_mahasiswa?id=<?= $row['id']; ?>" class="btn btn-danger" role="button" title="Hapus Data">Hapus Data<i class="glyphicon glyphicon-trash"></i></a>
                                                     </td>
                                                 <?php
                                                 }
@@ -160,6 +176,7 @@
     <script>
         $(document).ready(function() {
             $('#myTable').DataTable();
+            // scrollX: true;
         });
     </script>
 
