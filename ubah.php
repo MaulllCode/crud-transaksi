@@ -101,9 +101,9 @@
                                     </div>
                                     <div class="form-group">
                                         <label>TANGGAL</label>
-                                        <input type="date" name="tgl" class="form-control" placeholder="TANGGAL" required value="<?php echo $row['tgl']; ?>>
+                                        <input type="date" name="tgl" class="form-control" placeholder="TANGGAL" required value="<?php echo $row['tgl']; ?>">
                                     </div>
-                                    <div class=" form-group">
+                                    <div class="form-group">
                                         <label>BATAS WAKTU</label>
                                         <input type="date" name="batas_waktu" class="form-control" placeholder="BATAS WAKTU" required value="<?php echo $row['batas_waktu']; ?>">
                                     </div>

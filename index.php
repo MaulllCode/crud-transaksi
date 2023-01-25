@@ -81,7 +81,7 @@
                                 // Tombol tambah data untuk admin
                                 if (isset($_SESSION['id_user'])) {
                                 ?>
-                                    <a href="tambah_mahasiswa" class="btn btn-primary" role="button" title="Tambah Data"><i class="glyphicon glyphicon-plus"></i> Tambah Data</a>
+                                    <a href="tambah" class="btn btn-primary" role="button" title="Tambah Data"><i class="glyphicon glyphicon-plus"></i> Tambah Data</a>
                                 <?php
                                 }
                                 ?>
@@ -142,8 +142,8 @@
                                                 if (isset($_SESSION['id_user'])) {
                                                 ?>
                                                     <td>
-                                                        <a href="ubah_mahasiswa?id=<?= $row['id']; ?>" class="btn btn-success" role="button" title="Ubah Data">Ubah Data<i class="glyphicon glyphicon-edit"></i></a>
-                                                        <a href="hapus_mahasiswa?id=<?= $row['id']; ?>" class="btn btn-danger" role="button" title="Hapus Data">Hapus Data<i class="glyphicon glyphicon-trash"></i></a>
+                                                        <a href="ubah?id=<?= $row['id']; ?>" class="btn btn-success" role="button" title="Ubah Data">Ubah Data<i class="glyphicon glyphicon-edit"></i></a>
+                                                        <a href="hapus?id=<?= $row['id']; ?>" class="btn btn-danger" role="button" title="Hapus Data">Hapus Data<i class="glyphicon glyphicon-trash"></i></a>
                                                     </td>
                                                 <?php
                                                 }
