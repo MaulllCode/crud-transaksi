@@ -32,7 +32,7 @@
 
         // Proses Logout
         if (isset($_POST['logout'])) {
-            if (isset($_SESSION['id_user'])) {
+            if (isset($_SESSION['role'])) {
                 session_destroy();
 
                 echo "<script>alert('Anda berhasil Keluar !');window.location.href='index';</script>";
@@ -48,14 +48,14 @@
             <section class="card-header">
                 <div class="row">
                     <div class="col">
-                        <h1>DATA MAHASISWA</h1>
+                        <h1>TABLE TRANSAKSI</h1>
                     </div>
                     <div class="col pt-2">
                         <div class="d-flex justify-content-end">
                             <div>
                                 <?php
                                 // Tombol login dan logout
-                                if (!isset($_SESSION['id_user'])) {
+                                if (!isset($_SESSION['role'])) {
                                 ?>
                                     <a class="btn btn-primary" href="login"><i class="fa-solid fa-right-to-bracket"></i> Masuk</a>
                                     <a class="btn btn-warning" href="kontak"><i class="fa-solid fa-phone"></i> Kontak Kami</a>
@@ -82,7 +82,7 @@
                             <div class="box-header pb-2">
                                 <?php
                                 // Tombol tambah data untuk admin
-                                if (isset($_SESSION['id_user'])) {
+                                if (isset($_SESSION["role"]) == "admin") {
                                 ?>
                                     <a href="tambah" class="btn btn-primary" role="button" title="Tambah Data"><i class="glyphicon glyphicon-plus"></i> Tambah Data</a>
                                     <a href="kontak" class="btn btn-warning" role="button" title="Daftar Pesan"><i class="glyphicon glyphicon-plus"></i> Daftar Pesan</a>
@@ -109,7 +109,7 @@
                                             <th>ID USER</th>
                                             <?php
                                             // Tampilan aksi untuk admin
-                                            if (isset($_SESSION['id_user'])) {
+                                            if (isset($_SESSION["role"]) == "admin") {
                                             ?>
                                                 <th>AKSI</th>
                                             <?php
@@ -143,7 +143,7 @@
                                                 <td><?php echo $row['id_user']; ?></td>
                                                 <?php
                                                 // Tombol aksi untuk admin
-                                                if (isset($_SESSION['id_user'])) {
+                                                if (isset($_SESSION["role"]) == "admin") {
                                                 ?>
                                                     <td>
                                                         <a href="ubah?id=<?= $row['id']; ?>" class="btn btn-success" role="button" title="Ubah Data">Ubah Data<i class="glyphicon glyphicon-edit"></i></a>

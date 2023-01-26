@@ -23,7 +23,7 @@
         <?php
         // Session
         session_start();
-        if (!isset($_SESSION["id_user"])) {
+        if (!isset($_SESSION["role"]) == "admin") {
             echo '<script>alert("Hanya Admin yang dapat mengakses halaman ini !!!"); window.location.href="index"</script>';
             exit;
         }
@@ -71,7 +71,7 @@
             <!-- Content Header (Page header) -->
             <section class="card-header">
                 <h1>
-                    UBAH MAHASISWA
+                    UBAH TRANSAKSI
                 </h1>
             </section>
 
@@ -87,43 +87,43 @@
                             <form role="form" method="post" action="">
                                 <div class="box-body">
                                     <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                                    <div class="form-group">
+                                    <div class="mb-3">
                                         <label>ID OUTLET</label>
                                         <input type="text" name="id_outlet" class="form-control" placeholder="ID OUTLET" required value="<?php echo $row['id_outlet']; ?>">
                                     </div>
-                                    <div class="form-group">
+                                    <div class="mb-3">
                                         <label>KODE INVOICE</label>
                                         <input type="text" name="kode_invoice" class="form-control" placeholder="KODE INVOICE" required value="<?php echo $row['kode_invoice']; ?>">
                                     </div>
-                                    <div class="form-group">
+                                    <div class="mb-3">
                                         <label>ID MEMBER</label>
                                         <input type="text" name="id_member" class="form-control" placeholder="ID MEMBER" required value="<?php echo $row['id_member']; ?>">
                                     </div>
-                                    <div class="form-group">
+                                    <div class="mb-3">
                                         <label>TANGGAL</label>
                                         <input type="date" name="tgl" class="form-control" placeholder="TANGGAL" required value="<?php echo $row['tgl']; ?>">
                                     </div>
-                                    <div class="form-group">
+                                    <div class="mb-3">
                                         <label>BATAS WAKTU</label>
                                         <input type="date" name="batas_waktu" class="form-control" placeholder="BATAS WAKTU" required value="<?php echo $row['batas_waktu']; ?>">
                                     </div>
-                                    <div class="form-group">
+                                    <div class="mb-3">
                                         <label>TANGGAL BAYAR</label>
                                         <input type="date" name="tgl_bayar" class="form-control" placeholder="TANGGAL BAYAR" required value="<?php echo $row['tgl_bayar']; ?>">
                                     </div>
-                                    <div class="form-group">
+                                    <div class="mb-3">
                                         <label>BIAYA TAMBAHAN</label>
                                         <input type="text" name="biaya_tambahan" class="form-control" placeholder="BIAYA TAMBAHAN" required value="<?php echo $row['biaya_tambahan']; ?>">
                                     </div>
-                                    <div class="form-group">
+                                    <div class="mb-3">
                                         <label>DISKON</label>
                                         <input type="text" name="diskon" class="form-control" placeholder="DISKON" required value="<?php echo $row['diskon']; ?>">
                                     </div>
-                                    <div class="form-group">
+                                    <div class="mb-3">
                                         <label>PAJAK</label>
                                         <input type="text" name="pajak" class="form-control" placeholder="PAJAK" required value="<?php echo $row['pajak']; ?>">
                                     </div>
-                                    <div class="form-group">
+                                    <div class="mb-3">
                                         <label>STATUS</label>
                                         <select class="form-control" name="status" value="<?php echo $row['status']; ?>>" <option value="">- Pilihan Status -</option>
                                             <option value="Baru">Baru</option>
@@ -132,21 +132,22 @@
                                             <option value="Diambil">Diambil</option>
                                         </select>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="mb-3">
                                         <label>DIBAYAR</label>
                                         <select class="form-control" name="dibayar" value="<?php echo $row['dibayar']; ?>>" <option value="">- Pilihan -</option>
                                             <option value="Dibayar">Dibayar</option>
                                             <option value="Belum_dibayar">Belum_dibayar</option>
                                         </select>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="mb-3">
                                         <label>ID USER</label>
                                         <input type="text" name="id_user" class="form-control" placeholder="ID USER" required value="<?php echo $row['id_user']; ?>">
                                     </div>
                                 </div>
                                 <!-- /.box-body -->
-                                <div class="box-footer pt-3">
+                                <div class="box-footer">
                                     <button type="submit" class="btn btn-primary" name="ubah" title="Simpan Data"> <i class="glyphicon glyphicon-floppy-disk"></i> Simpan</button>
+                                    <a href="index" class="btn btn-success"> Kembali</a>
                                 </div>
                             </form>
                         </div>

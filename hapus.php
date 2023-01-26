@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-if (!isset($_SESSION["id_user"])) {
+if (!isset($_SESSION["role"]) == "admin") {
     echo '<script>alert("Hanya Admin yang dapat mengakses halaman ini !!!"); window.location.href="index.php"</script>';
     exit;
 }

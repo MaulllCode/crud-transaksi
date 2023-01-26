@@ -24,7 +24,7 @@
         <?php
         // Session
         session_start();
-        if (!isset($_SESSION["id_user"])) {
+        if (!isset($_SESSION["role"]) == "admin") {
             echo '<script>alert("Hanya Admin yang dapat mengakses halaman ini !!!"); window.location.href="index"</script>';
             exit;
         }
@@ -65,7 +65,7 @@
             <!-- Content Header (Page header) -->
             <section class="card-header">
                 <h1>
-                    TAMBAH DATA
+                    TAMBAH TRANSAKSI
                 </h1>
             </section>
             <!-- Main content -->
@@ -79,43 +79,43 @@
                             <!-- form start -->
                             <form role="form" method="post" action="">
                                 <div class="box-body">
-                                    <div class="form-group">
+                                    <div class="mb-3">
                                         <label>ID OUTLET</label>
                                         <input type="text" name="id_outlet" class="form-control" placeholder="ID OUTLET" required>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="mb-3">
                                         <label>KODE INVOICE</label>
                                         <input type="text" name="kode_invoice" class="form-control" placeholder="KODE INVOICE" required>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="mb-3">
                                         <label>ID MEMBER</label>
                                         <input type="text" name="id_member" class="form-control" placeholder="ID MEMBER" required>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="mb-3">
                                         <label>TANGGAL</label>
                                         <input type="date" name="tgl" class="form-control" placeholder="TANGGAL" required>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="mb-3">
                                         <label>BATAS WAKTU</label>
                                         <input type="date" name="batas_waktu" class="form-control" placeholder="BATAS WAKTU" required>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="mb-3">
                                         <label>TANGGAL BAYAR</label>
                                         <input type="date" name="tgl_bayar" class="form-control" placeholder="TANGGAL BAYAR" required>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="mb-3">
                                         <label>BIAYA TAMBAHAN</label>
                                         <input type="text" name="biaya_tambahan" class="form-control" placeholder="BIAYA TAMBAHAN" required>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="mb-3">
                                         <label>DISKON</label>
                                         <input type="text" name="diskon" class="form-control" placeholder="DISKON" required>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="mb-3">
                                         <label>PAJAK</label>
                                         <input type="text" name="pajak" class="form-control" placeholder="PAJAK" required>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="mb-3">
                                         <label>STATUS</label>
                                         <select class="form-control" name="status">
                                             <option value="">- Pilihan Status -</option>
@@ -125,7 +125,7 @@
                                             <option value="Diambil">Diambil</option>
                                         </select>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="mb-3">
                                         <label>DIBAYAR</label>
                                         <select class="form-control" name="dibayar">
                                             <option value="">- Pilihan -</option>
@@ -133,14 +133,15 @@
                                             <option value="Belum_dibayar">Belum_dibayar</option>
                                         </select>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="mb-3">
                                         <label>ID USER</label>
                                         <input type="text" name="id_user" class="form-control" placeholder="ID USER" required>
                                     </div>
                                 </div>
                                 <!-- /.box-body -->
-                                <div class="box-footer pt-3">
+                                <div class="box-footer">
                                     <button type="submit" class="btn btn-primary" name="tambah" title="Simpan Data"> <i class="glyphicon glyphicon-floppy-disk"></i> Simpan</button>
+                                    <a href="index" class="btn btn-success"> Kembali</a>
                                 </div>
                             </form>
                         </div>

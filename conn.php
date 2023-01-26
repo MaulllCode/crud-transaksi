@@ -1,7 +1,7 @@
 
 <?php
 // local, user, password, database
-$kon = mysqli_connect("localhost", "root", "", "crud-infinity");
+$kon = mysqli_connect("localhost", "root", "", "crud-transaksi");
 
 if (!$kon) {
     // jika error

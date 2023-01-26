@@ -23,7 +23,7 @@
         <?php
         // Session
         session_start();
-        if (isset($_SESSION["id_user"])) {
+        if (isset($_SESSION["role"]) == ("admin" || "owner" || "kasir")) {
             echo '<script>alert("Anda telah melakukan login !!!"); window.location.href="index"</script>';
             exit;
         }
@@ -35,10 +35,10 @@
 
             $username = (htmlentities($_POST['username']));
             $password = (md5($_POST['password']));
-            $check    = mysqli_query($kon, "SELECT * FROM user WHERE username = '$username' AND password = '$password'") or die("Connection failed: " . mysqli_connect_error());
+            $check    = mysqli_query($kon, "SELECT * FROM tb_user WHERE username = '$username' AND password = '$password'") or die("Connection failed: " . mysqli_connect_error());
             if (mysqli_num_rows($check) >= 1) {
                 while ($row = mysqli_fetch_array($check)) {
-                    $_SESSION['id_user'] = $row['id_user'];
+                    $_SESSION['role'] = $row['role'];
         ?>
                     <script>
                         alert("Selamat Datang <?= $row['username']; ?> Kamu Telah Login Ke Halaman Admin !!!");
@@ -53,48 +53,49 @@
         ?>
     </div>
 
-    <div class="card">
-
-        <div id="form" class="container py-3">
-            <!-- Content Wrapper. Contains page content -->
-            <div class="card">
-                <!-- Content Header (Page header) -->
-                <section class="card-header">
-                    <h1>
-                        FORM LOGIN
-                    </h1>
-                </section>
-                <!-- Main content -->
-                <section class="card-body">
-                    <div class="row">
-                        <!-- left column -->
-                        <div class="col-md-12">
-                            <!-- general form elements -->
-                            <div class="box box-primary">
-                                <!-- /.box-header -->
-                                <!-- form start -->
-                                <form method="post" action="">
-                                    <div class="form-group">
-                                        <label>Username</label>
-                                        <input type="text" class="form-control" name="username" placeholder="Masukan Username" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Password</label>
-                                        <input type="password" class="form-control" name="password" placeholder="Masukan Password" required>
-                                    </div>
-                                    <div class="form-group pt-3">
-                                        <input type="submit" class="btn btn-primary" name="login" value="Login">
-                                    </div>
-                                </form>
-                            </div>
-                            <!-- /.box -->
+    <div id="form" class="container py-3">
+        <!-- Content Wrapper. Contains page content -->
+        <div class="card">
+            <!-- Content Header (Page header) -->
+            <section class="card-header">
+                <h1>
+                    FORM LOGIN
+                </h1>
+            </section>
+            <!-- Main content -->
+            <section class="card-body">
+                <div class="row">
+                    <!-- left column -->
+                    <div class="col-md-12">
+                        <!-- general form elements -->
+                        <div class="box box-primary">
+                            <!-- /.box-header -->
+                            <!-- form start -->
+                            <form method="post" action="">
+                                <div class="mb-3">
+                                    <label>Username</label>
+                                    <input type="text" class="form-control" name="username" placeholder="Masukan Username" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label>Password</label>
+                                    <input type="password" class="form-control" name="password" placeholder="Masukan Password" required>
+                                </div>
+                                <div class="d-grid">
+                                    <input type="submit" class="btn btn-primary" name="login" value="Login">
+                                </div>
+                                <hr>
+                                <div class="text-center">
+                                    <p>Anda belum punya akun? <a href="register">Daftar</a></p>
+                                </div>
+                            </form>
                         </div>
+                        <!-- /.box -->
                     </div>
-                </section>
-                <!-- /.content -->
-            </div>
-            <!-- /.content-wrapper -->
+                </div>
+            </section>
+            <!-- /.content -->
         </div>
+        <!-- /.content-wrapper -->
     </div>
 </body>
 

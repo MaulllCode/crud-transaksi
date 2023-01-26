@@ -14,6 +14,10 @@
     <!-- Fontawesome -->
     <script src="https://kit.fontawesome.com/d0157de78d.js" crossorigin="anonymous"></script>
 
+    <!-- Datatables -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+
     <title>Document</title>
 </head>
 
@@ -24,10 +28,6 @@
         <?php
         // Session
         session_start();
-        // if (!isset($_SESSION["id_user"])) {
-        //     echo '<script>alert("Hanya Admin yang dapat mengakses halaman ini !!!"); window.location.href="index"</script>';
-        //     exit;
-        // }
 
         // Proses tambah
         include "conn.php";
@@ -37,7 +37,7 @@
             $no_hp = $_POST['no_hp'];
             $pesan = $_POST['pesan'];
 
-            $sql = "INSERT INTO pesan VALUES (NULL, '$nama', '$email', '$no_hp', '$pesan')";
+            $sql = "INSERT INTO tb_pesan VALUES (NULL, '$nama', '$email', '$no_hp', '$pesan')";
 
             $result = mysqli_query($kon, $sql);
 
@@ -53,7 +53,7 @@
 
     <?php
     // Tombol login dan logout
-    if (isset($_SESSION['id_user'])) {
+    if (isset($_SESSION["role"]) == "admin") {
     ?>
         <div id="form" class="container py-3">
             <!-- Content Wrapper. Contains page content -->
@@ -83,6 +83,7 @@
                                                     <th>EMAIL</th>
                                                     <th>NO HP</th>
                                                     <th>PESAN</th>
+                                                    <th>AKSI</th>
                                                 </tr>
                                             </thead>
 
@@ -91,7 +92,7 @@
                                                 include "conn.php";
                                                 // Ambil data untuk index
                                                 $no = 1;
-                                                $query = mysqli_query($kon, "SELECT * FROM pesan");
+                                                $query = mysqli_query($kon, "SELECT * FROM tb_pesan");
                                                 while ($row = mysqli_fetch_array($query)) {
                                                 ?>
                                                     <tr>
@@ -100,6 +101,10 @@
                                                         <td><?php echo $row['email']; ?></td>
                                                         <td><?php echo $row['no_hp']; ?></td>
                                                         <td><?php echo $row['pesan']; ?></td>
+                                                        <td>
+                                                            <a href="ubah?id=<?= $row['id']; ?>" class="btn btn-success" role="button" title="Ubah Data">Ubah Data<i class="glyphicon glyphicon-edit"></i></a>
+                                                            <a href="hapus?id=<?= $row['id']; ?>" class="btn btn-danger" role="button" title="Hapus Data">Hapus Data<i class="glyphicon glyphicon-trash"></i></a>
+                                                        </td>
                                                     </tr>
                                                 <?php } ?>
                                             </tbody>
@@ -176,6 +181,19 @@
     <?php
     }
     ?>
+
+    <!-- Javascript Datatable -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#myTable').DataTable();
+            // scrollX: true;
+        });
+    </script>
+
 </body>
 
 </html>
