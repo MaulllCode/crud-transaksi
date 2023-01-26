@@ -52,20 +52,23 @@
                     </div>
                     <div class="col pt-2">
                         <div class="d-flex justify-content-end">
-                            <?php
-                            // Tombol login dan logout
-                            if (!isset($_SESSION['id_user'])) {
-                            ?>
-                                <a class="btn btn-primary" href="login"><i class="fa-solid fa-right-to-bracket"></i> Masuk</a>
-                            <?php
-                            } else {
-                            ?>
-                                <form action="" method="post">
-                                    <button type="submit" name="logout" class="btn btn-danger"><i class="fa-solid fa-right-from-bracket"></i> Keluar</button>
-                                </form>
-                            <?php
-                            }
-                            ?>
+                            <div>
+                                <?php
+                                // Tombol login dan logout
+                                if (!isset($_SESSION['id_user'])) {
+                                ?>
+                                    <a class="btn btn-primary" href="login"><i class="fa-solid fa-right-to-bracket"></i> Masuk</a>
+                                    <a class="btn btn-warning" href="kontak"><i class="fa-solid fa-phone"></i> Kontak Kami</a>
+                                <?php
+                                } else {
+                                ?>
+                                    <form action="" method="post">
+                                        <button type="submit" name="logout" class="btn btn-danger"><i class="fa-solid fa-right-from-bracket"></i> Keluar</button>
+                                    </form>
+                                <?php
+                                }
+                                ?>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -82,6 +85,7 @@
                                 if (isset($_SESSION['id_user'])) {
                                 ?>
                                     <a href="tambah" class="btn btn-primary" role="button" title="Tambah Data"><i class="glyphicon glyphicon-plus"></i> Tambah Data</a>
+                                    <a href="kontak" class="btn btn-warning" role="button" title="Daftar Pesan"><i class="glyphicon glyphicon-plus"></i> Daftar Pesan</a>
                                 <?php
                                 }
                                 ?>

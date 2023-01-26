@@ -23,4 +23,5 @@ if ($_GET) {
 } else {
     echo '<script>alert("Pilih data yang ingin dihapus terlebih dahulu !!!"); window.location.href="index"</script>';
 }
+
 ?>
