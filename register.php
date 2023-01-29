@@ -26,7 +26,7 @@
 
         // Session
         session_start();
-        if (isset($_SESSION["role"]) == ("admin" || "owner" || "kasir")) {
+        if (isset($_SESSION["role"])) {
             echo '<script>alert("Anda telah melakukan login !!!"); window.location.href="index"</script>';
             exit;
         }

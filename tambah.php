@@ -128,7 +128,7 @@
                                     <div class="mb-3">
                                         <label>DIBAYAR</label>
                                         <select class="form-control" name="dibayar">
-                                            <option value="">- Pilihan -</option>
+                                            <option value="">- Pilihan Bayar-</option>
                                             <option value="Dibayar">Dibayar</option>
                                             <option value="Belum_dibayar">Belum_dibayar</option>
                                         </select>

@@ -136,7 +136,7 @@
                                         <label>DIBAYAR</label>
                                         <select class="form-control" name="dibayar" value="<?php echo $row['dibayar']; ?>>" <option value="">- Pilihan -</option>
                                             <option value="Dibayar">Dibayar</option>
-                                            <option value="Belum_dibayar">Belum_dibayar</option>
+                                            <option value="Belum_dibayar">Belum dibayar</option>
                                         </select>
                                     </div>
                                     <div class="mb-3">
