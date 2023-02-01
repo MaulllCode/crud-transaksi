@@ -25,12 +25,12 @@
         // Session
         session_start();
         if (!isset($_SESSION["role"]) == "admin") {
-            echo '<script>alert("Hanya Admin yang dapat mengakses halaman ini !!!"); window.location.href="index"</script>';
+            echo '<script>alert("Hanya Admin yang dapat mengakses halaman ini !!!"); window.location.href="transaksi"</script>';
             exit;
         }
 
         // Proses tambah
-        include "conn.php";
+        include "../conn.php";
         if (isset($_POST['tambah'])) {
             $id_outlet = $_POST['id_outlet'];
             $kode_invoice = $_POST['kode_invoice'];
@@ -52,7 +52,7 @@
             if (!$result) {
                 die("Connection failed: " . mysqli_connect_error());
             } else {
-                echo '<script>alert("Data Berhasil Ditambahkan !!!"); window.location.href="index"</script>';
+                echo '<script>alert("Data Berhasil Ditambahkan !!!"); window.location.href="transaksi"</script>';
             }
         }
         ?>
@@ -141,7 +141,7 @@
                                 <!-- /.box-body -->
                                 <div class="box-footer">
                                     <button type="submit" class="btn btn-primary" name="tambah" title="Simpan Data"> <i class="glyphicon glyphicon-floppy-disk"></i> Simpan</button>
-                                    <a href="index" class="btn btn-success"> Kembali</a>
+                                    <a href="transaksi" class="btn btn-success"> Kembali</a>
                                 </div>
                             </form>
                         </div>

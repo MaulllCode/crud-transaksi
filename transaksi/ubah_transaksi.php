@@ -24,11 +24,11 @@
         // Session
         session_start();
         if (!isset($_SESSION["role"]) == "admin") {
-            echo '<script>alert("Hanya Admin yang dapat mengakses halaman ini !!!"); window.location.href="index"</script>';
+            echo '<script>alert("Hanya Admin yang dapat mengakses halaman ini !!!"); window.location.href="transaksi"</script>';
             exit;
         }
 
-        include "conn.php";
+        include "../conn.php";
         // Proses ubah
         if (isset($_POST['ubah'])) {
             $id = $_POST['id'];
@@ -52,12 +52,12 @@
             if (!$result) {
                 die("Connection failed: " . mysqli_connect_error());
             } else {
-                echo '<script>alert("Data Berhasil Diubah !!!"); window.location.href="index"</script>';
+                echo '<script>alert("Data Berhasil Diubah !!!"); window.location.href="transaksi"</script>';
             }
         }
 
         // Ambil data dari database
-        include "conn.php";
+        include "../conn.php";
         $query = mysqli_query($kon, "SELECT * FROM tb_transaksi WHERE id='" . $_GET['id'] . "'");
         $row = mysqli_fetch_array($query);
         ?>
@@ -134,7 +134,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <label>DIBAYAR</label>
-                                        <select class="form-control" name="dibayar" value="<?php echo $row['dibayar']; ?>>" <option value="">- Pilihan -</option>
+                                        <select class="form-control" name="dibayar" value="<?php echo $row['dibayar']; ?>>">- Pilihan -</option>
                                             <option value="Dibayar">Dibayar</option>
                                             <option value="Belum_dibayar">Belum dibayar</option>
                                         </select>
@@ -147,7 +147,7 @@
                                 <!-- /.box-body -->
                                 <div class="box-footer">
                                     <button type="submit" class="btn btn-primary" name="ubah" title="Simpan Data"> <i class="glyphicon glyphicon-floppy-disk"></i> Simpan</button>
-                                    <a href="index" class="btn btn-success"> Kembali</a>
+                                    <a href="transaksi" class="btn btn-success"> Kembali</a>
                                 </div>
                             </form>
                         </div>

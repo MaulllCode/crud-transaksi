@@ -89,6 +89,14 @@
                                     <input type="text" class="form-control" name="username" placeholder="Nama lengkap" required pattern="[a-zA-Z\s]{1,50}" oninvalid="this.setCustomValidity('Masukan Nama lengkap dengan benar')" oninput="setCustomValidity('')">
                                 </div>
                                 <div class="mb-3">
+                                    <label>KATA SANDI</label>
+                                    <input type="password" class="form-control" name="password" placeholder="Kata sandi" required oninvalid="this.setCustomValidity('Masukan Kata sandi dengan benar')" oninput="setCustomValidity('')" min="10">
+                                </div>
+                                <div class="mb-3">
+                                    <label>KONFIRMASI KATA SANDI</label>
+                                    <input type="password" class="form-control" name="cpassword" placeholder="Kata sandi" required oninvalid="this.setCustomValidity('Masukan kata sandi dengan benar')" oninput="setCustomValidity('')">
+                                </div>
+                                <div class="mb-3">
                                     <label>ID OUTLET</label>
                                     <input type="text" class="form-control" name="id_outlet" placeholder="Masukan Id Outlet" required>
                                 </div>
@@ -101,14 +109,7 @@
                                         <option value="owner">Owner</option>
                                     </select>
                                 </div>
-                                <div class="mb-3">
-                                    <label>KATA SANDI</label>
-                                    <input type="password" class="form-control" name="password" placeholder="Kata sandi" required oninvalid="this.setCustomValidity('Masukan Kata sandi dengan benar')" oninput="setCustomValidity('')" min="10">
-                                </div>
-                                <div class="mb-3">
-                                    <label>KONFIRMASI KATA SANDI</label>
-                                    <input type="password" class="form-control" name="cpassword" placeholder="Kata sandi" required oninvalid="this.setCustomValidity('Masukan kata sandi dengan benar')" oninput="setCustomValidity('')">
-                                </div>
+
                                 <div class="d-grid">
                                     <input type="submit" class="btn btn-primary" name="register" value="Registrasi">
                                 </div>

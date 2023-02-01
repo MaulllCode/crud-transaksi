@@ -35,7 +35,7 @@
             if (isset($_SESSION['role'])) {
                 session_destroy();
 
-                echo "<script>alert('Anda berhasil Keluar !');window.location.href='index';</script>";
+                echo "<script>alert('Anda berhasil Keluar !');window.location.href='outlet';</script>";
             }
         }
         ?>
@@ -48,7 +48,7 @@
             <section class="card-header">
                 <div class="row">
                     <div class="col">
-                        <h1>TABLE TRANSAKSI</h1>
+                        <h1>TABLE OUTLET</h1>
                     </div>
                     <div class="col pt-2">
                         <div class="d-flex justify-content-end">
@@ -84,8 +84,7 @@
                                 // Tombol tambah data untuk admin
                                 if (isset($_SESSION["role"]) == "admin") {
                                 ?>
-                                    <a href="tambah" class="btn btn-primary" role="button" title="Tambah Data"><i class="glyphicon glyphicon-plus"></i> Tambah Data</a>
-                                    <a href="kontak" class="btn btn-warning" role="button" title="Daftar Pesan"><i class="glyphicon glyphicon-plus"></i> Daftar Pesan</a>
+                                    <a href="tambah_outlet" class="btn btn-primary" role="button" title="Tambah Data"><i class="glyphicon glyphicon-plus"></i> Tambah Data</a>
                                 <?php
                                 }
                                 ?>
@@ -95,18 +94,9 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>ID OUTLET</th>
-                                            <th>KODE INVOICE</th>
-                                            <th>ID MEMBER</th>
-                                            <th>TANGGAL</th>
-                                            <th>BATAS WAKTU</th>
-                                            <th>TANGGAL BAYAR</th>
-                                            <th>BIAYA TAMBAHAN</th>
-                                            <th>DISKON</th>
-                                            <th>PAJAK</th>
-                                            <th>STATUS</th>
-                                            <th>DIBAYAR</th>
-                                            <th>ID USER</th>
+                                            <th>NAMA</th>
+                                            <th>ALAMAT</th>
+                                            <th>NO TELEPON</th>
                                             <?php
                                             // Tampilan aksi untuk admin
                                             if (isset($_SESSION["role"]) == "admin") {
@@ -120,34 +110,25 @@
                                     <tbody>
 
                                         <?php
-                                        include "conn.php";
-                                        // Ambil data untuk index
+                                        include "../conn.php";
+                                        // Ambil data untuk outlet
                                         $no = 1;
-                                        $query = mysqli_query($kon, "SELECT * FROM tb_transaksi");
+                                        $query = mysqli_query($kon, "SELECT * FROM tb_outlet");
                                         while ($row = mysqli_fetch_array($query)) {
                                         ?>
 
                                             <tr>
                                                 <td><?php echo $no++; ?></td>
-                                                <td><?php echo $row['id_outlet']; ?></td>
-                                                <td><?php echo $row['kode_invoice']; ?></td>
-                                                <td><?php echo $row['id_member']; ?></td>
-                                                <td><?php echo $row['tgl']; ?></td>
-                                                <td><?php echo $row['batas_waktu']; ?></td>
-                                                <td><?php echo $row['tgl_bayar']; ?></td>
-                                                <td><?php echo $row['biaya_tambahan']; ?></td>
-                                                <td><?php echo $row['diskon']; ?>%</td>
-                                                <td><?php echo $row['pajak']; ?>%</td>
-                                                <td><?php echo $row['status']; ?></td>
-                                                <td><?php echo $row['dibayar']; ?></td>
-                                                <td><?php echo $row['id_user']; ?></td>
+                                                <td><?php echo $row['nama']; ?></td>
+                                                <td><?php echo $row['alamat']; ?></td>
+                                                <td><?php echo $row['tlp']; ?></td>
                                                 <?php
                                                 // Tombol aksi untuk admin
                                                 if (isset($_SESSION["role"]) == "admin") {
                                                 ?>
                                                     <td>
-                                                        <a href="ubah?id=<?= $row['id']; ?>" class="btn btn-success" role="button" title="Ubah Data">Ubah Data<i class="glyphicon glyphicon-edit"></i></a>
-                                                        <a href="hapus?id=<?= $row['id']; ?>" class="btn btn-danger" role="button" title="Hapus Data">Hapus Data<i class="glyphicon glyphicon-trash"></i></a>
+                                                        <a href="ubah_outlet?id=<?= $row['id']; ?>" class="btn btn-success" role="button" title="Ubah Data">Ubah Data<i class="glyphicon glyphicon-edit"></i></a>
+                                                        <a href="hapus_outlet?id=<?= $row['id']; ?>" class="btn btn-danger" role="button" title="Hapus Data">Hapus Data<i class="glyphicon glyphicon-trash"></i></a>
                                                     </td>
                                                 <?php
                                                 }
